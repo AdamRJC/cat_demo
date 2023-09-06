@@ -3,6 +3,7 @@ on: push
 permissions:
   checks: write
   pull-requests: write
+  #
 jobs:
   deployment:
     runs-on: windows-latest
