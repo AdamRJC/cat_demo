@@ -1,0 +1,30 @@
+name: Whatever
+on: push
+permissions:
+  checks: write
+  pull-requests: write
+jobs:
+  deployment:
+    runs-on: windows-latest
+    environment: dev
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: run cat
+        shell: pwsh
+        env:
+          AERO_STRING_PROD: ${{ secrets.AERO_STRING_PROD }}
+        run: |
+          
+          Install-Module CAT -Force -AcceptLicense
+      
+          Import-Module CAT
+      
+          Invoke-CatProject
+          
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action/composite@v2
+        if: always()
+        with:
+          files: |
+            **/*.trx
