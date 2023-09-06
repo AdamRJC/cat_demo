@@ -41,17 +41,17 @@ Get list of tests from:
 #   Query: SELECT * FROM [Tests] WHERE [TestName] = 'DeparturesEmptyCheck'
   
 #########################################################################################################
-Named sets:
-- Name: all gates
-  Data source: AERO_PROD
-  Query: |
-    SELECT  GATE_ID, GATE_NO 
-    FROM    DIM.GATES
-- Name: staging tables
-  Data source: AERO_PROD
-  Query: |
-    SELECT  * 
-    FROM  INFORMATION_SCHEMA.TABLES as t 
-    WHERE TABLE_SCHEMA = N'STAGE'
+# Named sets:
+# - Name: all gates
+#   Data source: AERO_PROD
+#   Query: |
+#     SELECT  GATE_ID, GATE_NO 
+#     FROM    DIM.GATES
+# - Name: staging tables
+#   Data source: AERO_PROD
+#   Query: |
+#     SELECT  * 
+#     FROM  INFORMATION_SCHEMA.TABLES as t 
+#     WHERE TABLE_SCHEMA = N'STAGE'
 #########################################################################################################
 Output: trx
